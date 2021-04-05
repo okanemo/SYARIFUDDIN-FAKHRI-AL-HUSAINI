@@ -13,6 +13,8 @@ app.get('/', (req, res) => {
 const port = process.env.PORT || 3000;
 
 require("./app/routers/user.router.js")(app);
+require("./app/routers/nab.router.js")(app);
+require("./app/routers/userUnit.router.js")(app);
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}... `)
