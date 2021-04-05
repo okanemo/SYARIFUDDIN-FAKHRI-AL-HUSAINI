@@ -6,7 +6,7 @@ exports.list = (req, res) => {
         if (err)
             res.status(500).send({
                 message:
-                    err.message || "Some error occurred while retrieving User."
+                    err.message || "Some error occurred while retrieving NAB."
             });
         else res.send(data);
     });
@@ -15,7 +15,7 @@ exports.list = (req, res) => {
 exports.create = (req, res) => {
     if (!req.body) {
         res.status(400).send({
-            message: "Content can not be empty"
+            message: "Content create NAB can not be empty"
         });
     }
     if (!validationResult(req).isEmpty()){

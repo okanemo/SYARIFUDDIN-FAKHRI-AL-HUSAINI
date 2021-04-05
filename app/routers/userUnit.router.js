@@ -9,5 +9,5 @@ module.exports = app => {
         check('user_id').notEmpty,
         check('amount_rupiah').isFloat({ min: 0 }).notEmpty()
     ];
-    app.post("/api/v1/ib/withdraw", validator, userUnit.withdraw);
+    app.post("/api/v1/ib/withdraw", userUnit.withdraw);
 }

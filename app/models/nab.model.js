@@ -16,12 +16,24 @@ NAB.getAll = result => {
         for (let data of res){
             let temp = {
                 nab : data.nab,
-                date : data.date
+                date : data.date.toISOString().slice(0, 19).replace('T', ' ')
             }
             datas.push(temp);
         }
         console.log("List NAB: ", datas);
         result(null, datas);
+    });
+};
+
+NAB.getLastNAB = result => {
+    sql.query("SELECT * FROM n_a_b_s WHERE id = (SELECT max(id) FROM n_a_b_s)", (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(null, err);
+            return;
+        }
+        console.log("Last NAB: ", res.nab);
+        result(null, res);
     });
 };
 

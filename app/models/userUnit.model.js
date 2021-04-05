@@ -17,6 +17,22 @@ UserUnit.getByUserId = (user_id, result) => {
     });
 };
 
+UserUnit.getTotalUnit = result => {
+    sql.query("SELECT * FROM user_units", (err, res) => {
+        if (err) {
+            console.log("error: ", err);
+            result(err, null);
+            return;
+        }
+        let totalUnit = 0;
+        for (let data of res) {
+            totalUnit += data.unit;
+        }
+        console.log("TotalUnit: ", totalUnit);
+        result(null, totalUnit);
+    });
+};
+
 UserUnit.create = (newUser, newUserUnit, result) => {
     sql.query("INSERT INTO user_units SET ?", newUserUnit, (err, res) => {
         if (err) {

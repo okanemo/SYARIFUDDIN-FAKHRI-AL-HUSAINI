@@ -16,7 +16,7 @@ exports.member = (req, res) => {
 
 exports.create = (req, res) => {
     if (!req.body) {
-        console.log({message: "Content can not be empty"});
+        console.log({message: "Content create user can not be empty"});
         res.status(400).send({
             message: "Content can not be empty"
         });
@@ -44,7 +44,7 @@ exports.create = (req, res) => {
                 if (err)
                     res.status(500).send({
                         message:
-                            err.message || "Some error occurred while retrieving User."
+                            err.message || "Some error occurred while create User."
                     });
                 else res.status(201).send({ user_id: data.user_id});
             })
