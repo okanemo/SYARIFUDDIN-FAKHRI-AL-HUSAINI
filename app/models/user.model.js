@@ -44,7 +44,7 @@ User.getUserIdByUsername = (userName, result) => {
         }
         else if(res.length == 0) {
             console.log("Username not found");
-            result({message: "Username not found"}, null);
+            result(null, {message: "Username not found"});
         }
         // console.log("User: ", res);
         result(null, res);

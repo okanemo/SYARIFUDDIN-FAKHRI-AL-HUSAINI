@@ -1,0 +1,481 @@
+{
+	"info": {
+		"_postman_id": "8dc5f468-13dc-47aa-9c45-d6361a16ffc9",
+		"name": "NOZOMU API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add User",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\" : \"okanemo\",\r\n  \"password\" : \"okanemopass\",\r\n  \"name\" : \"okanemo\",\r\n  \"email\" : \"okanemo@email.com\"\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/user/add",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User Error Duplicate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\" : \"okanemo\",\r\n  \"password\" : \"okanemopass\",\r\n  \"name\" : \"okanemo\",\r\n  \"email\" : \"okanemo@email.com\"\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/user/add",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User Error Input Password Invalid",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\" : \"joko\",\r\n  \"password\" : \"ehe\",\r\n  \"name\" : \"joko\",\r\n  \"email\" : \"joko@email.com\"\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/user/add",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User Error Input Email Invalid",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\" : \"joko\",\r\n  \"password\" : \"jokohehe\",\r\n  \"name\" : \"joko\",\r\n  \"email\" : \"joko@email\"\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/user/add",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"user",
+						"add"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Total Balance",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"current_balance\" : 20000\r\n}\t"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/ib/updateTotalBalance",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ib",
+						"updateTotalBalance"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List NAB",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/ib/listNAB",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ib",
+						"listNAB"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Topup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user_id\" : \"320f0192-a050-4ad8-9e95-d85de4ddcf7a\",\r\n  \"amount_rupiah\" : 20000\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/ib/topup",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ib",
+						"topup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Topup Error user_id Not Found",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user_id\" : \"320f0192-a050-4ad8-9e95-d85de4ddcf7a\",\r\n  \"amount_rupiah\" : 20000\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/ib/topup",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ib",
+						"topup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdraw",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user_id\" : \"320f0192-a050-4ad8-9e95-d85de4ddcf7a\",\r\n  \"amount_rupiah\" : 5000\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/ib/withdraw",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ib",
+						"withdraw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Withdraw Error user_id Not Found",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user_id\" : \"cgadsfjkvdsak\",\r\n  \"amount_rupiah\" : 5000\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/ib/withdraw",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ib",
+						"withdraw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Member",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/ib/member",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ib",
+						"member"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Member By ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/ib/member/320f0192-a050-4ad8-9e95-d85de4ddcf7a",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ib",
+						"member",
+						"320f0192-a050-4ad8-9e95-d85de4ddcf7a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Member By Page 2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/ib/member/all/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ib",
+						"member",
+						"all",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Member By Page 0 Limit 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/ib/member/all/0/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ib",
+						"member",
+						"all",
+						"0",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user_id By username",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:3000/api/v1/ib/memberId/okanemo",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"ib",
+						"memberId",
+						"okanemo"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
