@@ -98,7 +98,7 @@ exports.create = (req, res) => {
             message: "Content can not be empty"
         });
     }
-    else if (!validationResult(req).isEmpty() || req.body.username.toLoweCase() == "all"){
+    else if (!validationResult(req).isEmpty() || req.body.username.toLowerCase() == "all"){
         console.log({message: "Input not valid."});
         res.status(406).send({
             message: "Input not valid."
@@ -107,9 +107,9 @@ exports.create = (req, res) => {
     else {
         const user = new User({
             user_id: uuidv4(),
-            username: req.body.username.toLoweCase(),
+            username: req.body.username.toLowerCase(),
             name: req.body.name.toUpperCase(),
-            email: req.body.email.toLoweCase(),
+            email: req.body.email.toLowerCase(),
             password: req.body.password,
         });
         const userUnit = new UserUnit({
