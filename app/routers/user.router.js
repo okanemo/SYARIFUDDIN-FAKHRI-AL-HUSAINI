@@ -5,6 +5,8 @@ module.exports = app => {
 
     app.get("/api/v1/ib/member/:user_id?/:page?/:limit?", users.member);
 
+    app.get("/api/v1/ib/memberId/:userName", users.getIdByUserName)
+
     let validator = [
         check('password').isLength({ min: 8 }),
         check('email').isEmail()

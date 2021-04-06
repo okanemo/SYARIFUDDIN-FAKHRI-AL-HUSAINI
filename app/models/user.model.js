@@ -17,7 +17,7 @@ User.getAllByPageLimit = (param_page, param_limit, result) => {
             result(null, err);
             return;
         }
-        console.log("Users: ", res);
+        // console.log("Users: ", res);
         result(null, res);
     });
 };
@@ -30,7 +30,23 @@ User.getUserById = (id_user, result) => {
             result(null, err);
             return;
         }
-        console.log("User: ", res);
+        // console.log("User: ", res);
+        result(null, res);
+    });
+};
+
+User.getUserIdByUsername = (userName, result) => {
+    sql.query("SELECT user_id, username FROM users WHERE username = ?", userName, (err, res) => {
+        if (err) {
+            console.log("error get User By Id: ", err);
+            result(null, err);
+            return;
+        }
+        else if(res.length == 0) {
+            console.log("Username not found");
+            result({message: "Username not found"}, null);
+        }
+        // console.log("User: ", res);
         result(null, res);
     });
 };
@@ -42,7 +58,7 @@ User.getTotalUser = result => {
             result(null, err);
             return;
         }
-        console.log("Total user: ", res[0].total_user);
+        // console.log("Total user: ", res[0].total_user);
         result(null, res[0].total_user);
     });
 };
@@ -67,6 +83,7 @@ User.create = (newUser, newUserUnit, result) => {
                 result(err_create, null);
                 return;
             }
+            // console.log("Successfull add user");
             result(null, res_create);
         });
     });
@@ -83,7 +100,7 @@ User.remove = (user_id, result) => {
             result({kind: "not_found"}, null);
             return;
         }
-        console.log("Delete user with user_id : ", user_id);
+        // console.log("Delete user with user_id : ", user_id);
         result(null, res);
     });
 };

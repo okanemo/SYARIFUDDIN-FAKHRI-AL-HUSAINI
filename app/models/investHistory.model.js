@@ -15,7 +15,7 @@ InvestHistory.create = (newInvestHistory, result) => {
             result(err, null);
             return;
         }
-        console.log("Successfull add investHistory with id : ", res.insertId);
+        // console.log("Successfull add investHistory with id : ", res.insertId);
         result(null, {id: res.insertId, ...newInvestHistory});
     })
 };
@@ -27,7 +27,7 @@ InvestHistory.remove = (id, result) => {
             result(err, null);
             return;
         }
-        console.log("Delete investHistory with id", id);
+        // console.log("Delete investHistory with id", id);
         result(null, res);
     });
 };

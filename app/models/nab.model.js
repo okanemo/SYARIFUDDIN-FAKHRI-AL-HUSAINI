@@ -20,7 +20,7 @@ NAB.getAll = result => {
             }
             datas.push(temp);
         }
-        console.log("List NAB: ", datas);
+        // console.log("List NAB: ", datas);
         result(null, datas);
     });
 };
@@ -32,7 +32,7 @@ NAB.getLastNAB = result => {
             result(null, err);
             return;
         }
-        console.log("Last NAB: ", res[0].nab);
+        // console.log("Last NAB: ", res[0].nab);
         result(null, res);
     });
 };
@@ -44,7 +44,7 @@ NAB.create = (newNAB, result) => {
             result(err, null);
             return;
         }
-        console.log("Successfull add nab with value ", newNAB.nab);
+        // console.log("Successfull add nab with value ", newNAB.nab);
         result(null, {id: res.insertId, ...newNAB});
     })
 };

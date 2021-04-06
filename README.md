@@ -22,94 +22,114 @@ Untuk custom port jalankan `PORT = {port} nodemon server.js` dengan `{port}` dii
 ## Testing 
 1. Buka POSTMAN
 2. Gunakan selalu hostname `localhost` atau `127.0.0.1` dengan port yang digunakan saat di Projext Run.
-3. Untuk POST request gunakan `Header: Content-Type Value: application/json`
+3. Untuk POST request gunakan `Header: Content-Type Value: application/json` dan format input raw JSON
 4. Untuk URL endpoint berikutnya sebagai berikut:
     - Add User 
-        Endpoint: `/api/v1/user/add`
-        Input :
-        ``` 
-        {
-            "username" : "contoh",
-            "password" : "contoh123",
-            "name" : "contoh",
-            "email" : "contoh@email.com"
-        }
-        ```
-        Output :
-        `{"user_id": "c384cfec-69b5-4d53-84d5-5212345d274b"}`
+    Endpoint : `/api/v1/user/add`
+    Input Contoh :
+    ``` 
+    {
+        "username" : "contoh",
+        "password" : "contoh123",
+        "name" : "contoh",
+        "email" : "contoh@email.com"
+    }
+    ```
+    Output Contoh :
+    `{"user_id": "c384cfec-69b5-4d53-84d5-5212345d274b"}`
 
     - Update Total Balance 
-        Endpoint: `/api/v1/ib/updateTotalBalance`
-        Input :
-        `{"current_balance" : 100000}`
-        Output :
-        `{"nab": 1}`
+    Endpoint : `/api/v1/ib/updateTotalBalance`
+    Input Contoh :
+    `{"current_balance" : 100000}`
+    Output Contoh :
+    `{"nab": 1}`
 
     - Get List NAB 
-        Endpoint: `/api/v1/ib/listNAB`
-        Output :
-        ```
-        [{
-            "nab": 1,
-            "date": "2021-04-06 05:16:05"
-        }]
-        ```
+    Endpoint : `/api/v1/ib/listNAB`
+    Output Contoh :
+    ```
+    [{
+        "nab": 1,
+        "date": "2021-04-06 05:16:05"
+    }]
+    ```
         
     - Do topup 
-        Endpoint: `/api/v1/ib/topup`
-        Input :
-        ```
-        {
-            "user_id" : "c384cfec-69b5-4d53-84d5-5212345d274b",
-            "amount_rupiah" : 10000
-        }
-        ```
-        Output :
-        ```
-        {
-            "nilai_unit_hasil_topup": 10000,
-            "nilai_unit_total": 10000,
-            "saldo_rupiah_total": 10000
-        }
-        ```
+    Endpoint : `/api/v1/ib/topup`
+    Input Contoh :
+    ```
+    {
+        "user_id" : "c384cfec-69b5-4d53-84d5-5212345d274b",
+        "amount_rupiah" : 10000
+    }
+    ```
+    Output Contoh :
+    ```
+    {
+        "nilai_unit_hasil_topup": 10000,
+        "nilai_unit_total": 10000,
+        "saldo_rupiah_total": 10000
+    }
+    ```
+
     - Do withdraw 
-        Endpoint: `/api/v1/ib/withdraw`
-        Input :
-        ```
-        {
-            "user_id" : "c384cfec-69b5-4d53-84d5-5212345d274b",
-            "amount_rupiah" : 10000
-        }
-        ```
-        Output :
-        ```
-        {
-            "nilai_unit_setelah_withdraw": 5000,
-            "nilai_unit_total": 5000,
-            "saldo_rupiah_total": 5000
-        }
-        ```
+    Endpoint : `/api/v1/ib/withdraw`
+    Input Contoh :
+    ```
+    {
+        "user_id" : "c384cfec-69b5-4d53-84d5-5212345d274b",
+        "amount_rupiah" : 10000
+    }
+    ```
+    Output Contoh :
+    ```
+    {
+        "nilai_unit_setelah_withdraw": 5000,
+        "nilai_unit_total": 5000,
+        "saldo_rupiah_total": 5000
+    }
+    ```
         
     - Get Member 
-        Endpoint dengan input kosong: `/api/v1/ib/member`
-        Endpoint dengan input user_id:  `/api/v1/ib/member/{user_id}`
-        Endpoint dengan input page: `/api/v1/ib/member/all/{num_page}`
-        Endpoint dengan input page and limit: `/api/v1/ib/member/all/{num_page}/{num_limit}`
-        Output :
-        ```
-        {
-            "page": 0,
-            "limit_data": 20,
-            "total_users": 1,
-            "show_user_data": 1,
-            "current_nab": 1,
-            "total_unit": 5000,
-            "users": [
-                {
-                    "user_id": "c384cfec-69b5-4d53-84d5-5212345d274b",
-                    "unit": 5000,
-                    "rupiah": 5000
-                }
-            ]
-        }
-        ```
+    Endpoint dengan input kosong : `/api/v1/ib/member`
+    Endpoint dengan input user_id : `/api/v1/ib/member/{user_id}`
+    Endpoint dengan input page : `/api/v1/ib/member/all/{num_page}`
+    Endpoint dengan input page and limit : `/api/v1/ib/member/all/{num_page}/{num_limit}`
+    Output Contoh :
+    ```
+    {
+        "page": 0,
+        "limit_data": 20,
+        "total_users": 1,
+        "show_user_data": 1,
+        "current_nab": 1,
+        "total_unit": 5000,
+        "users": [
+            {
+                "user_id": "c384cfec-69b5-4d53-84d5-5212345d274b",
+                "unit": 5000,
+                "rupiah": 5000
+            }
+        ]
+    }
+    ```
+
+    - Get user_id Member by username
+    Endpoint : `api/v1/ib/memberId/{username}`
+    Output Contoh :
+    ```
+    {
+        "user_id": "c384cfec-69b5-4d53-84d5-5212345d274b",
+        "username": "contoh"
+    }
+    ```
+
+## Fitur-fitur Tambahan
+- Pada tabel users ditambahkan user_id, password, email
+- Pembentukan user_id menggunakan uuid
+- user_id, username, email pada tabel users bersifat unik
+- Validasi input pada email dan password (min 8 karakter)
+- user_id pada tabel user_units merupakan foreign key ke tabel users
+- Handling error dan menampilkan ke console dan result
+- Get user_id Member menggunakan username

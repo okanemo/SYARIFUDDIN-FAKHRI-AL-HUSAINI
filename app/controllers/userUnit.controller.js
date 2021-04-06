@@ -6,7 +6,6 @@ const make2DigitFormat = function(num) { return ('00'+num).slice(-2) };
 
 const transaksi = function(req, res, type){
     if (!req.body) {
-        console.log({message: "Content topup can not be empty"});
         res.status(400).send({
             message: "Content can not be empty"
         });

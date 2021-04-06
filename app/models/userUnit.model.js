@@ -13,10 +13,10 @@ UserUnit.getByUserId = (user_id, result) => {
             return;
         }
         else if(res.length == 0) {
-            console.log("User not found");
-            result({message: "User not found"}, null);
+            console.log("UserId not found");
+            result({message: "UserId not found"}, null);
         }
-        console.log("UserUnit: ", res);
+        // console.log("UserUnit: ", res);
         result(null, res);
     });
 };
@@ -32,7 +32,7 @@ UserUnit.getTotalUnit = result => {
         for (let data of res) {
             totalUnit += data.unit;
         }
-        console.log("TotalUnit: ", totalUnit);
+        // console.log("TotalUnit: ", totalUnit);
         result(null, totalUnit);
     });
 };
@@ -44,7 +44,7 @@ UserUnit.create = (newUser, newUserUnit, result) => {
             result(err, null);
             return;
         }
-        console.log("Successfull add user with user_id : ", newUser.user_id);
+        // console.log("Successfull add userUnit with user_id : ", newUser.user_id);
         result(null, {id: res.insertId, ...newUser});
     });
 };

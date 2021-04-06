@@ -63,7 +63,6 @@ exports.member = (req, res) => {
     let params_user_id = req.params.user_id == undefined ? "all" : req.params.user_id;
     let params_page = req.params.page == undefined ? 0 : req.params.page;
     let params_limit = req.params.limit == undefined ? 20 : req.params.limit;
-    console.log(params_user_id, params_page, params_limit);
 
     if (params_user_id != "all"){
         User.getUserById( params_user_id, (err, data) => {
@@ -89,6 +88,20 @@ exports.member = (req, res) => {
             }
         });
     }
+};
+
+exports.getIdByUserName = (req, res) => {
+    let param_username = req.params.userName.toUpperCase();
+    User.getUserIdByUsername( param_username, (err, data) => {
+        if (err)
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while retrieving User."
+            });
+        else {
+            res.status(200).send(data[0]);
+        }
+    });
 };
 
 exports.create = (req, res) => {
