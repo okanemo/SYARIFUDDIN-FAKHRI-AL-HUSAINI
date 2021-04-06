@@ -12,6 +12,10 @@ UserUnit.getByUserId = (user_id, result) => {
             result(err, null);
             return;
         }
+        else if(res.length == 0) {
+            console.log("User not found");
+            result({message: "User not found"}, null);
+        }
         console.log("UserUnit: ", res);
         result(null, res);
     });
