@@ -25,7 +25,10 @@ Untuk custom port jalankan `PORT = {port} nodemon server.js` dengan `{port}` dii
 3. Untuk POST request gunakan `Header: Content-Type Value: application/json` dan format input raw JSON
 4. Untuk URL endpoint berikutnya sebagai berikut:
     - Add User 
-    Endpoint : `/api/v1/user/add`
+    Endpoint : 
+    ```
+        /api/v1/user/add
+    ```
     Input Contoh :
     ``` 
     {
@@ -36,17 +39,29 @@ Untuk custom port jalankan `PORT = {port} nodemon server.js` dengan `{port}` dii
     }
     ```
     Output Contoh :
-    `{"user_id": "c384cfec-69b5-4d53-84d5-5212345d274b"}`
+    ```
+    {"user_id": "c384cfec-69b5-4d53-84d5-5212345d274b"}
+    ```
 
     - Update Total Balance 
-    Endpoint : `/api/v1/ib/updateTotalBalance`
+    Endpoint : 
+    ```
+    /api/v1/ib/updateTotalBalance
+    ```
     Input Contoh :
-    `{"current_balance" : 100000}`
+    ```
+    {"current_balance" : 100000}
+    ```
     Output Contoh :
-    `{"nab": 1}`
+    ```
+    {"nab": 1}
+    ```
 
     - Get List NAB 
-    Endpoint : `/api/v1/ib/listNAB`
+    Endpoint : 
+    ```
+    /api/v1/ib/listNAB
+    ```
     Output Contoh :
     ```
     [{
@@ -56,7 +71,10 @@ Untuk custom port jalankan `PORT = {port} nodemon server.js` dengan `{port}` dii
     ```
         
     - Do topup 
-    Endpoint : `/api/v1/ib/topup`
+    Endpoint : 
+    ```
+    /api/v1/ib/topup
+    ```
     Input Contoh :
     ```
     {
@@ -74,7 +92,10 @@ Untuk custom port jalankan `PORT = {port} nodemon server.js` dengan `{port}` dii
     ```
 
     - Do withdraw 
-    Endpoint : `/api/v1/ib/withdraw`
+    Endpoint : 
+    ```
+    /api/v1/ib/withdraw
+    ```
     Input Contoh :
     ```
     {
@@ -92,10 +113,22 @@ Untuk custom port jalankan `PORT = {port} nodemon server.js` dengan `{port}` dii
     ```
         
     - Get Member 
-    Endpoint dengan input kosong : `/api/v1/ib/member`
-    Endpoint dengan input user_id : `/api/v1/ib/member/{user_id}`
-    Endpoint dengan input page : `/api/v1/ib/member/all/{num_page}`
-    Endpoint dengan input page and limit : `/api/v1/ib/member/all/{num_page}/{num_limit}`
+    Endpoint dengan input kosong : 
+    ```
+    /api/v1/ib/member
+    ```
+    Endpoint dengan input user_id : 
+    ```
+    /api/v1/ib/member/{user_id}
+    ```
+    Endpoint dengan input page : 
+    ```
+    /api/v1/ib/member/all/{num_page}
+    ```
+    Endpoint dengan input page and limit : 
+    ```
+    /api/v1/ib/member/all/{num_page}/{num_limit}
+    ```
     Output Contoh :
     ```
     {
@@ -116,7 +149,10 @@ Untuk custom port jalankan `PORT = {port} nodemon server.js` dengan `{port}` dii
     ```
 
     - Get user_id Member by username
-    Endpoint : `api/v1/ib/memberId/{username}`
+    Endpoint : 
+    ```
+    api/v1/ib/memberId/{username}
+    ```
     Output Contoh :
     ```
     {
