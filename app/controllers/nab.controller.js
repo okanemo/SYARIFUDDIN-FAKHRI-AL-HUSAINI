@@ -10,7 +10,7 @@ exports.list = (req, res) => {
                 message:
                     err.message || "Some error occurred while retrieving NAB."
             });
-        else res.send(data);
+        else res.status(200).send(data);
     });
 };
 

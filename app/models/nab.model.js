@@ -8,7 +8,7 @@ const NAB = function(nab){
 NAB.getAll = result => {
     sql.query("SELECT * FROM n_a_b_s", (err, res) => {
         if (err) {
-            console.log("error: ", err);
+            console.log("error get All NAB: ", err);
             result(null, err);
             return;
         }
@@ -28,11 +28,11 @@ NAB.getAll = result => {
 NAB.getLastNAB = result => {
     sql.query("SELECT * FROM n_a_b_s WHERE id = (SELECT max(id) FROM n_a_b_s)", (err, res) => {
         if (err) {
-            console.log("error: ", err);
+            console.log("error get last NAB: ", err);
             result(null, err);
             return;
         }
-        console.log("Last NAB: ", res.nab);
+        console.log("Last NAB: ", res[0].nab);
         result(null, res);
     });
 };
@@ -40,7 +40,7 @@ NAB.getLastNAB = result => {
 NAB.create = (newNAB, result) => {
     sql.query("INSERT INTO n_a_b_s SET ?", newNAB, (err, res) => {
         if (err) {
-            console.log("error: ", err);
+            console.log("error create NAB: ", err);
             result(err, null);
             return;
         }

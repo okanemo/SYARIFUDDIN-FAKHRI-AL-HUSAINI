@@ -8,7 +8,7 @@ const UserUnit = function(userUnit){
 UserUnit.getByUserId = (user_id, result) => {
     sql.query("SELECT * FROM user_units WHERE user_id = ?", user_id, (err, res) => {
         if (err) {
-            console.log("error: ", err);
+            console.log("error get UserUnit By UserId: ", err);
             result(err, null);
             return;
         }
@@ -24,7 +24,7 @@ UserUnit.getByUserId = (user_id, result) => {
 UserUnit.getTotalUnit = result => {
     sql.query("SELECT * FROM user_units", (err, res) => {
         if (err) {
-            console.log("error: ", err);
+            console.log("error getTotalUnit: ", err);
             result(err, null);
             return;
         }
@@ -40,7 +40,7 @@ UserUnit.getTotalUnit = result => {
 UserUnit.create = (newUser, newUserUnit, result) => {
     sql.query("INSERT INTO user_units SET ?", newUserUnit, (err, res) => {
         if (err) {
-            console.log("error: ", err);
+            console.log("error create UserUnit: ", err);
             result(err, null);
             return;
         }
@@ -52,7 +52,7 @@ UserUnit.create = (newUser, newUserUnit, result) => {
 UserUnit.updateUnitByUserId = (user_id, unit, result) => {
     sql.query("UPDATE user_units SET unit = ? WHERE user_id = ?", [unit, user_id], (err, res) => {
         if (err) {
-            console.log("error: ", err);
+            console.log("error update UserUnit By UserId: ", err);
             result(err, null);
             return;
         }

@@ -11,7 +11,7 @@ const InvestHistory = function(investHistory){
 InvestHistory.create = (newInvestHistory, result) => {
     sql.query("INSERT INTO investment_history SET ?", newInvestHistory, (err, res) => {
         if (err) {
-            console.log("error: ", err);
+            console.log("error create InvestHistory: ", err);
             result(err, null);
             return;
         }
@@ -23,7 +23,7 @@ InvestHistory.create = (newInvestHistory, result) => {
 InvestHistory.remove = (id, result) => {
     sql.query("DELETE FROM investment_history WHERE id = ?", id, (err, res) => {
         if (err) {
-            console.log("error: ", err);
+            console.log("error remove InvestHistory: ", err);
             result(err, null);
             return;
         }
